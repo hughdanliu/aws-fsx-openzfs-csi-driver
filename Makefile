@@ -104,6 +104,21 @@ test-sanity:
 test-e2e:
 	cd ./tests/e2e/ && ginkgo -r --procs=4 --timeout=5h
 
+.PHONY: test-e2e-eks
+test-e2e-eks:
+	CLUSTER_TYPE=eksctl \
+	HELM_VALUES_FILE="./hack/values_eksctl.yaml" \
+	HELM_EXTRA_FLAGS='--set=controller.k8sTagClusterId=$$CLUSTER_NAME' \
+	TEST_EXTRA_FLAGS='--cluster-name=$$CLUSTER_NAME --region=$$REGION --pr=$$PULL_NUMBER' \
+	INSTALL_SNAPSHOT="true" \
+	EKSCTL_ADMIN_ROLE="Infra-prod-KopsDeleteAllLambdaServiceRoleF1578477-1ELDFIB4KCMXV" \
+	AWS_REGION=us-east-1 \
+	AWS_AVAILABILITY_ZONES=us-east-1a,us-east-1b \
+	TEST_PATH=./tests/e2e/... \
+	GINKGO_FOCUS="External.Storage" \
+	GINKGO_SKIP="\[Disruptive\]|\[Serial\]" \
+	./hack/e2e/run.sh
+
 .PHONY: clean
 clean:
 	rm -rf .*image-* bin/

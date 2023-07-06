@@ -31,9 +31,12 @@ func init() {
 	framework.RegisterCommonFlags(flag.CommandLine)
 	framework.RegisterClusterFlags(flag.CommandLine)
 
-	flag.StringVar(&ClusterName, "cluster-name", "fsx-openzfs-csi-cluster", "the eks cluster name")
+	//ClusterName = *flag.String("cluster-name", "", "the eks cluster name")
+	//Region = *flag.String("region", "us-east-1", "the region")
+	//PullNumber = *flag.String("pr", "local", "the associated pull request number if present")
+	flag.StringVar(&ClusterName, "cluster-name", "openzfs", "the eks cluster name")
 	flag.StringVar(&Region, "region", "us-east-1", "the aws region")
-	flag.StringVar(&PullRequest, "pull-request", "local", "the associated pull request number if present")
+	flag.StringVar(&PullNumber, "pr", "local", "the associated pull request number if present")
 
 	flag.Parse()
 }

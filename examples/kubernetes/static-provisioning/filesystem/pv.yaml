@@ -15,7 +15,7 @@ spec:
   persistentVolumeReclaimPolicy: Delete
   csi:
     driver: fsx.openzfs.csi.aws.com
-    volumeHandle: "fs-0b1c1203ee2ac03a8"
+    volumeHandle: "fs-094fd29d32641fa10"
     volumeAttributes:
-      DNSName: "fs-0b1c1203ee2ac03a8.fsx.us-east-1.amazonaws.com"
+      DNSName: "fs-094fd29d32641fa10.fsx.us-east-1.amazonaws.com"
       ResourceType: "filesystem"

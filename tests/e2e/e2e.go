@@ -30,7 +30,7 @@ var (
 var (
 	ClusterName      string
 	Region           string
-	PullRequest      string
+	PullNumber       string
 	subnetIds        []string
 	securityGroupIds []string
 	filesystem       *fsx.FileSystem
@@ -96,7 +96,7 @@ func getDefaultFilesystemParameters(subnetIds string, securityGroupIds string) m
 		"SubnetIds":                 subnetIds,
 		"SkipFinalBackupOnDeletion": `true`,
 		"SecurityGroupIds":          securityGroupIds,
-		"Tags":                      fmt.Sprintf(`[{"Key": "%s", "Value": "%s"}]`, CSIDriverE2ETagKey, PullRequest),
+		"Tags":                      fmt.Sprintf(`[{"Key": "%s", "Value": "%s"}]`, CSIDriverE2ETagKey, PullNumber),
 	}
 }
 
@@ -113,7 +113,7 @@ func getDefaultCreateFilesystemInput(subnetIds []string, securityGroupIds []stri
 		Tags: []*fsx.Tag{
 			{
 				Key:   aws.String(CSIDriverE2ETagKey),
-				Value: aws.String(PullRequest),
+				Value: aws.String(PullNumber),
 			},
 		},
 	}
@@ -132,7 +132,7 @@ func getDefaultVolumeParameters(parentVolumeId string) map[string]string {
 	return map[string]string{
 		RESOURCETYPE:     RESOURCETYPE_VOLUME,
 		"ParentVolumeId": parentVolumeId,
-		"Tags":           fmt.Sprintf(`[{"Key": "%s", "Value": "%s"}]`, CSIDriverE2ETagKey, PullRequest),
+		"Tags":           fmt.Sprintf(`[{"Key": "%s", "Value": "%s"}]`, CSIDriverE2ETagKey, PullNumber),
 	}
 }
 
@@ -146,7 +146,7 @@ func getDefaultCreateVolumeInput(parentVolumeId string) fsx.CreateVolumeInput {
 		Tags: []*fsx.Tag{
 			{
 				Key:   aws.String(CSIDriverE2ETagKey),
-				Value: aws.String(PullRequest),
+				Value: aws.String(PullNumber),
 			},
 		},
 	}
@@ -160,7 +160,7 @@ func getDefaultDeleteVolumeInput() fsx.DeleteVolumeInput {
 
 func getDefaultSnapshotParameters() map[string]string {
 	return map[string]string{
-		"Tags": fmt.Sprintf(`[{"Key": "%s", "Value": "%s"}]`, CSIDriverE2ETagKey, PullRequest),
+		"Tags": fmt.Sprintf(`[{"Key": "%s", "Value": "%s"}]`, CSIDriverE2ETagKey, PullNumber),
 	}
 }
 
@@ -169,6 +169,6 @@ func getDefaultRestoreSnapshotParameters() map[string]string {
 		"ResourceType":   "volume",
 		"OriginSnapshot": `{"CopyStrategy": "CLONE"}`,
 		"ParentVolumeId": strconv.Quote(*filesystem.OpenZFSConfiguration.RootVolumeId),
-		"Tags":           fmt.Sprintf(`[{"Key": "%s", "Value": "%s"}]`, CSIDriverE2ETagKey, PullRequest),
+		"Tags":           fmt.Sprintf(`[{"Key": "%s", "Value": "%s"}]`, CSIDriverE2ETagKey, PullNumber),
 	}
 }
