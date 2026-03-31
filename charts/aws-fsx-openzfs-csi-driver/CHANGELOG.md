@@ -1,4 +1,9 @@
 # Helm chart
+# v1.3.0
+* Use driver v1.3.0
+* Add retries when attemping to remove taint
+* Bump base image to AL2023 and update grpc to fix CVEs
+
 # v1.2.0
 * Use driver v1.2.0
 * Make hostNetwork configurable on node daemonset

@@ -1,3 +1,8 @@
+# v1.3.0
+### Notable changes
+* Add retries when attemping to remove taint ([#85](https://github.com/kubernetes-sigs/aws-fsx-openzfs-csi-driver/pull/85), [@flux-ricky](https://github.com/flux-ricky))
+* Bump base image to AL2023 and update grpc to fix CVEs ([#88](https://github.com/kubernetes-sigs/aws-fsx-openzfs-csi-driver/pull/88), [@jrakas-dev](https://github.com/jrakas-dev))
+
 # v1.2.0
 ### Notable changes
 * Migrate AWS SDK to v2 ([#76](https://github.com/kubernetes-sigs/aws-fsx-openzfs-csi-driver/pull/76), [@gomesjason](https://github.com/gomesjason))
