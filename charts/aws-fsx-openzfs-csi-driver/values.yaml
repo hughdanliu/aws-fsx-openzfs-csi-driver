@@ -19,8 +19,8 @@ sidecars:
   livenessProbe:
     image:
       pullPolicy: IfNotPresent
-      repository: public.ecr.aws/eks-distro/kubernetes-csi/livenessprobe
-      tag: "v2.9.0-eks-1-26-latest"
+      repository: public.ecr.aws/csi-components/livenessprobe
+      tag: "v2.18.0-eksbuild.5"
     resources: {}
     securityContext:
       readOnlyRootFilesystem: true
@@ -29,8 +29,8 @@ sidecars:
     env: []
     image:
       pullPolicy: IfNotPresent
-      repository: public.ecr.aws/eks-distro/kubernetes-csi/node-driver-registrar
-      tag: "v2.7.0-eks-1-26-latest"
+      repository: public.ecr.aws/csi-components/csi-node-driver-registrar
+      tag: "v2.16.0-eksbuild.5"
     logLevel: 2
     resources: {}
     securityContext:
@@ -40,8 +40,8 @@ sidecars:
     env: []
     image:
       pullPolicy: IfNotPresent
-      repository: public.ecr.aws/eks-distro/kubernetes-csi/external-provisioner
-      tag: "v3.4.0-eks-1-26-latest"
+      repository: public.ecr.aws/csi-components/csi-provisioner
+      tag: "v6.2.0-eksbuild.4"
     logLevel: 2
     resources: {}
     # Tune leader lease election for csi-provisioner.
@@ -61,8 +61,8 @@ sidecars:
     env: []
     image:
       pullPolicy: IfNotPresent
-      repository: public.ecr.aws/eks-distro/kubernetes-csi/external-resizer
-      tag: "v1.7.0-eks-1-26-latest"
+      repository: public.ecr.aws/csi-components/csi-resizer
+      tag: "v2.1.0-eksbuild.5"
     logLevel: 2
     resources: {}
     securityContext:
@@ -74,8 +74,8 @@ sidecars:
     env: []
     image:
       pullPolicy: IfNotPresent
-      repository: public.ecr.aws/eks-distro/kubernetes-csi/external-snapshotter/csi-snapshotter
-      tag: "v6.2.1-eks-1-26-latest"
+      repository: public.ecr.aws/csi-components/csi-snapshotter
+      tag: "v8.5.0-eksbuild.5"
     logLevel: 2
     resources: {}
     securityContext:
