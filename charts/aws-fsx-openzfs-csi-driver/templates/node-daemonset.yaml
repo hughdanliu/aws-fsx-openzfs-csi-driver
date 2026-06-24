@@ -71,7 +71,7 @@ spec:
             {{- . | toYaml | nindent 12 }}
             {{- end }}
           envFrom:
-            {{- with .Values.controller.envFrom }}
+            {{- with .Values.node.envFrom }}
             {{- . | toYaml | nindent 12 }}
             {{- end }}
           volumeMounts:
