@@ -1,3 +1,7 @@
+# v1.3.1
+### Notable changes
+* Update sidecar images and Go dependencies to fix CVEs ([#96](https://github.com/kubernetes-sigs/aws-fsx-openzfs-csi-driver/pull/96), [@bScones](https://github.com/bScones))
+
 # v1.3.0
 ### Notable changes
 * Add retries when attemping to remove taint ([#85](https://github.com/kubernetes-sigs/aws-fsx-openzfs-csi-driver/pull/85), [@flux-ricky](https://github.com/flux-ricky))

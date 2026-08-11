@@ -84,7 +84,7 @@ spec:
             privileged: true
             readOnlyRootFilesystem: true
         - name: node-driver-registrar
-          image: public.ecr.aws/eks-distro/kubernetes-csi/node-driver-registrar:v2.7.0-eks-1-26-latest
+          image: public.ecr.aws/csi-components/csi-node-driver-registrar:v2.16.0-eksbuild.5
           imagePullPolicy: IfNotPresent
           args:
             - --csi-address=$(ADDRESS)
@@ -115,7 +115,7 @@ spec:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
         - name: liveness-probe
-          image: public.ecr.aws/eks-distro/kubernetes-csi/livenessprobe:v2.9.0-eks-1-26-latest
+          image: public.ecr.aws/csi-components/livenessprobe:v2.18.0-eksbuild.5
           imagePullPolicy: IfNotPresent
           args:
             - --csi-address=/csi/csi.sock
