@@ -1,3 +1,7 @@
+# v1.3.2
+### Notable changes
+* Update Go dependencies (golang.org/x/net, golang.org/x/text, google.golang.org/grpc) to fix CVEs
+
 # v1.3.1
 ### Notable changes
 * Update sidecar images and Go dependencies to fix CVEs ([#96](https://github.com/kubernetes-sigs/aws-fsx-openzfs-csi-driver/pull/96), [@bScones](https://github.com/bScones))
