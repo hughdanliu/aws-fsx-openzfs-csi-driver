@@ -1,4 +1,8 @@
 # Helm chart
+# v1.3.2
+* Use driver v1.3.2
+* Update Go dependencies to fix CVEs
+
 # v1.3.0
 * Use driver v1.3.0
 * Add retries when attemping to remove taint
